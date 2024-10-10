@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<br>
+<section class="default-section">
+		<div class="outer-container ">
+			<div class="clearfix">
+				<div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">
+					<div class="inner-column mx-auto">
+						<!-- Sec Title -->
+						<div class="sec-title light">
+							<div class="title-inner">
+								<div class="title">Отправка данных</div>
+								<h2>АРМСНАБ-74 Admin</h2>
+							</div>
+						</div>
+
+						<!-- Quote Form -->
+						<div class="quote-form mx-auto">
+
+							<!--Contact Form-->
+							<form method="post" action="{% url 'index' %}">
+								{% csrf_token %}
+								<div class="row clearfix">
+
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="text" name="full_name" placeholder="Имя фамилия" required>
+									</div>
+
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="text" name="company_name" placeholder="Название компании" required>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<input type="text" name="phone" placeholder="Телефон" required>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<textarea name="message" placeholder="Сообщение"></textarea>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+{% endblock content %}

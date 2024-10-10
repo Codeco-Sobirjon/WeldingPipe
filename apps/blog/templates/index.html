@@ -1,0 +1,274 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Welcome Section -->
+	<section class="welcome-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+
+				<!-- Image Column -->
+				<div class="image-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+						<div class="image">
+							<img src="{% static 'images/789.jpg' %}" alt="" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Content Column -->
+				<div class="content-column col-lg-6 col-md-12 col-sm-12">
+					<div class="inner-column">
+						<!-- Sec Title -->
+						<div class="sec-title">
+							<div class="title-inner">
+								<div class="title">Добро пожаловать в АРМСНАБ-74</div>
+								<h2>Промышленность и завод</h2>
+							</div>
+						</div>
+						<div class="text">Наша компания имеет многолетний опыт работы и специализируется на производстве, продаже, сервисном обслуживании и ремонте карданных валов (кардановозов) для различного автомобильного технологического оборудования,тракторов, спецтехники и сельскохозяйственной техники различных отечественных и зарубежных производителей. Для получения дополнительной информации, пожалуйста, нажмите на кнопку.Мы сообщаем о нашей предстоящей работе.</div>
+						<a href="{% url 'about' %}" class="theme-btn btn-style-three">О компании</a>
+
+						<!-- Counter Box -->
+						<div class="counter-box">
+
+							<div class="fact-counter">
+								<div class="row clearfix">
+
+									<!--Column-->
+									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+										<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+											<div class="count-outer count-box">
+												<h4 class="counter-title">Клиент</h4>
+												<span class="count-text" data-speed="3000" data-stop="1200">100</span>+
+											</div>
+										</div>
+									</div>
+
+									<!--Column-->
+									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+										<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+											<div class="count-outer count-box">
+												<h4 class="counter-title">Фабрики</h4>
+												<span class="count-text" data-speed="2500" data-stop="800">100</span>+
+											</div>
+										</div>
+									</div>
+
+									<!--Column-->
+									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">
+										<div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
+											<div class="count-outer count-box">
+												<h4 class="counter-title">Рынки</h4>
+												<span class="count-text" data-speed="2000" data-stop="99">200</span>+
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- End Welcome Section -->
+
+	<!-- Services Section -->
+
+	<!-- End Services Section -->
+
+	<!-- Call To Action Section -->
+	<section class="call-to-action-section" style="background-image:url({% static 'images/background/1.jpg' %});">
+		<div class="auto-container">
+			<h2>Get A <span class="theme_color">Solutions</span> For All <br> Industries</h2>
+			<div class="text">We believe strongly that we can and must do things differently. <br> Our aim is to bring you news, perspectives.</div>
+			<a href="{% url 'contact' %}" class="theme-btn btn-style-four">Отправить заявку</a>
+		</div>
+	</section>
+	<!-- End Call To Action Section -->
+
+	<!-- Project Section -->
+	<section class="project-section">
+		<div class="auto-container">
+			<!-- Sec Title -->
+			<div class="sec-title">
+				<div class="title-inner">
+					<div class="title">Наша работа</div>
+					<h2>Текущие проекты</h2>
+				</div>
+			</div>
+
+			<div class="four-item-carousel owl-carousel owl-theme">
+
+				<!-- Project Block -->
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="{% static 'images/resource/products/1.jpg' %}" alt="" />
+							<!-- Overlay Box -->
+							<div class="overlay-box">
+
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="#">Категория</a></h3>
+										<div class="category">Переходы</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Project Block -->
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="{% static 'images/resource/products/2.jpg' %}" alt="" />
+							<!-- Overlay Box -->
+							<div class="overlay-box">
+
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="#">Категория</a></h3>
+										<div class="category">Фланцы</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Project Block -->
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="{% static 'images/resource/products/3.jpg' %}" alt="" />
+							<!-- Overlay Box -->
+							<div class="overlay-box">
+
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="#">Категория</a></h3>
+										<div class="category">Тройники</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Project Block -->
+				<div class="project-block">
+					<div class="inner-box">
+						<div class="image">
+							<img src="{% static 'images/resource/products/4.jpg' %}" alt="" />
+							<!-- Overlay Box -->
+							<div class="overlay-box">
+
+								<div class="overlay-inner">
+									<div class="overlay-content">
+										<h3><a href="#">Категория</a></h3>
+										<div class="category">Отводы</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</section>
+	<!-- End Project Section -->
+
+	<!--Call To Action Section Two-->
+    <section class="call-to-action-section-two" style="background-image:url(images/background/1.jpg)">
+    	<div class="auto-container">
+        	<div class="clearfix">
+
+                <div class="pull-left">
+                	<h2>We tailor this service to your business, your goals and your budget</h2>
+                </div>
+                <div class="pull-right">
+                	<a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End Call To Action Section Two -->
+
+	<!-- Team Section -->
+
+	<!-- End Team Section -->
+
+	<!-- Testimonial Section -->
+	<br>
+
+	<!-- Default Section -->
+	<section class="default-section">
+		<div class="outer-container ">
+			<div class="clearfix">
+				<div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">
+					<div class="inner-column mx-auto">
+						<!-- Sec Title -->
+						<div class="sec-title light">
+							<div class="title-inner">
+								<div class="title">Отправка данных</div>
+								<h2>АРМСНАБ-74 Admin</h2>
+							</div>
+						</div>
+
+						<!-- Quote Form -->
+						<div class="quote-form mx-auto">
+
+							<!--Contact Form-->
+							<form method="post" action="{% url 'index' %}">
+								{% csrf_token %}
+								<div class="row clearfix">
+
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="text" name="full_name" placeholder="Имя фамилия" required>
+									</div>
+
+									<div class="form-group col-lg-6 col-md-6 col-sm-12">
+										<input type="text" name="company_name" placeholder="Название компании" required>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<input type="text" name="phone" placeholder="Телефон" required>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<textarea name="message" placeholder="Сообщение"></textarea>
+									</div>
+
+									<div class="form-group col-lg-12 col-md-12 col-sm-12">
+										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
+									</div>
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- End Default Section -->
+{% endblock content %}

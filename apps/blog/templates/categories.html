@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="services-section-two">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Title Column -->
+            {% for cat in sub_categories %}
+                <!-- Services Block Three -->
+                <div class="services-block-three col-lg-4 col-md-12 col-sm-12">
+                    <div class="inner-box">
+                        <div class="upper-box">
+                            <h6><a href="{% url 'product' cat.main_cat.id %}">{{ forloop.counter }}. {{ cat.main_cat.name }}</a></h6>
+                        </div>
+                        <div class="text">
+                            <ul class="navigation clearfix">
+                                {% for sb in cat.sub_cat %}
+                                    <li class="current dropdown">
+                                        <a href="{% url 'product' sb.id %}">{{ forloop.counter }}. {{ sb.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock content %}

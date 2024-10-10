@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+	<section class="projects-single-section">
+		<div class="auto-container">
+			<!-- Project Info Boxed -->
+<!--			pastga yuboramiz-->
+
+
+			<h2>{{ product.name }}</h2>
+
+			<!-- Carousel Box -->
+			<div class="carousel-box">
+				<div class="project-single-carousel owl-carousel owl-theme">
+					{% for im in images %}
+					<div class="slide">
+						<div class="image">
+							<img src="{{ im.image.url }}" style="object-fit:cover; height: 500px" alt="" />
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+
+			<h3>Описание</h3>
+			<p>{{ product.description|safe }}</p>
+
+			<div class="project-info-block">
+    <div class="block-info">
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Диаметры</th>
+                            <th scope="col">Размер, DxT</th>
+                            <th scope="col">Масса, кг</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in detail %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ row.diameter }}</td>
+                            <td>{{ row.size }}</td>
+                            <td>{{ row.weight }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+		</div>
+	</section>
+
+{% endblock %}
