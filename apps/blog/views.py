@@ -17,13 +17,17 @@ def indexView(request):
         phone = request.POST.get('phone')
         company_name = request.POST.get('company_name')
         comment = request.POST.get('message')
+        file1 = request.FILES.get('file1')
+        file2 = request.FILES.get('file2')
 
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
             phone=phone,
             company_name=company_name,
-            comment=comment
+            comment=comment,
+            file1=file1,
+            file2=file2
         )
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
@@ -44,13 +48,17 @@ def contactView(request):
         phone = request.POST.get('phone')
         company_name = request.POST.get('company_name')
         comment = request.POST.get('message')
-
+        file1 = request.FILES.get('file1')
+        file2 = request.FILES.get('file2')
+        print(file2)
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
             phone=phone,
             company_name=company_name,
-            comment=comment
+            comment=comment,
+            file1=file1,
+            file2=file2
         )
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу

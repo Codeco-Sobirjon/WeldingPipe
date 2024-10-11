@@ -92,6 +92,8 @@ class Contacts(models.Model):
     phone = models.CharField(_("Телефон"), max_length=250, null=True, blank=True)
     company_name = models.CharField(_("Название компании"), max_length=250, null=True, blank=True)
     comment = models.TextField(null=True, blank=True, verbose_name="Комментарий")
+    file1 = models.FileField(upload_to='file1/', null=True, blank=True, verbose_name="Прикрепить заявку")
+    file2 = models.FileField(upload_to='file1/', null=True, blank=True, verbose_name="Прикрепить реквизиты")
     created_at = models.DateField(auto_now_add=True, null=True, blank=True, verbose_name="Дата публикации")
 
     objects = models.Manager()

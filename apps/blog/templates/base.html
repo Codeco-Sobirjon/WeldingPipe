@@ -25,6 +25,29 @@
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
+	<style>
+		.custom-file-upload {
+    margin-bottom: 15px;
+}
+
+.custom-label {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+}
+
+.plus-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #333;
+}
+	</style>
 </head>
 
 <body class="hidden-bar-wrapper">
@@ -178,8 +201,21 @@
             <div class="slide" style="background-image:url({% static 'images/145.jpg' %})">
                 <div class="auto-container">
                 	<div class="content clearfix">
-						<div class="title">Промышленное производство</div>
-						<h2>Разумные партнерские отношения</h2>
+						<div class="title">АРМСНАБ-74</div>
+						<h2>Качество по разумным ценам</h2>
+						<div class="text">Компания Армснаб-74 - поставки трубопроводной арматуры по оптовым ценам. </div>
+                    	<div class="link-box">
+							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image:url({% static 'images/main-slider/88.jpeg' %})">
+                <div class="auto-container">
+                	<div class="content clearfix">
+						<div class="title">АРМСНАБ-74</div>
+						<h2>Компания Армснаб-74 - поставки трубопроводной арматуры. </h2>
 						<div class="text">Чтобы воспользоваться преимуществами оцифровки, промышленные производители нужны новые операционные модели.</div>
                     	<div class="link-box">
 							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
@@ -188,24 +224,11 @@
                 </div>
             </div>
 
-            <div class="slide" style="background-image:url({% static 'images/125.jpg' %})">
+            <div class="slide" style="background-image:url({% static 'images/main-slider/55.jpg' %})">
                 <div class="auto-container">
                 	<div class="content clearfix">
-						<div class="title">Промышленное производство</div>
-						<h2>Разумные партнерские отношения</h2>
-						<div class="text">Чтобы воспользоваться преимуществами оцифровки, промышленные производители нужны новые операционные модели.</div>
-                    	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
-						</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide" style="background-image:url({% static 'images/main-slider/image-1.jpg' %})">
-                <div class="auto-container">
-                	<div class="content clearfix">
-						<div class="title">Промышленное производство</div>
-						<h2>Разумные партнерские отношения</h2>
+						<div class="title">АРМСНАБ-74</div>
+						<h2>Армснаб-74 - это решение поствленных задач в кротчайшие сроки.</h2>
 						<div class="text">Чтобы воспользоваться преимуществами оцифровки, промышленные производители нужны новые операционные модели.</div>
                     	<div class="link-box">
 							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
