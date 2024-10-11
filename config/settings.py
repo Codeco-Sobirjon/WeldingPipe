@@ -133,10 +133,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "sobirbobojonov2000@gmail.com"
-EMAIL_HOST_PASSWORD = "rhngiswryyybicyo"
+EMAIL_HOST_USER = "Gain11@mail.ru"
+DEFAULT_FROM_EMAIL = "Gain11@mail.ru"
+EMAIL_HOST_PASSWORD = "yWuce47W3Fa4b4VZbMRP"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 customColorPalette = [

@@ -9,6 +9,8 @@ from apps.blog.models import (
     Product,
     ProductImage, ProductDetail, Contacts
 )
+from apps.blog.send_email import send_html_email
+from config import settings
 
 
 def indexView(request):
@@ -29,7 +31,7 @@ def indexView(request):
             file1=file1,
             file2=file2
         )
-
+        send_html_email()
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
 
