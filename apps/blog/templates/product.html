@@ -5,6 +5,7 @@
 {% block content %}
 <section class="blogs-page-section">
     <div class="auto-container">
+
         {% if product %}
         <div class="row clearfix">
             <!-- Iterate over the products -->
@@ -52,11 +53,14 @@
                 {% endif %}
             </ul>
         </div>
+
     {% else %}
         <div class="row clearfix">
             <h1> Не найдено </h1>
         </div>
     {% endif %}
+<p>{{ category.description|safe }}</p>
+        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
     </div>
 </section>
 

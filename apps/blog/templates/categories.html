@@ -20,7 +20,7 @@
                             <ul class="navigation clearfix">
                                 {% for sb in cat.sub_cat %}
                                     <li class="current dropdown">
-                                        <a href="{% url 'product' sb.id %}">{{ forloop.counter }}. {{ sb.name }}</a>
+                                        <p>{{ forloop.counter }}. {{ sb.name }}</p>
                                     </li>
                                 {% endfor %}
                             </ul>

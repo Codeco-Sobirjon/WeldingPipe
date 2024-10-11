@@ -93,7 +93,10 @@ def productsView(request, id):
 
     # Get all products for the given category
     product = Product.objects.select_related('category').filter(category=queryset).order_by('-id')
+    product_first = product.first()
 
+    category = Category.objects.filter(id=product_first.category.id).first()
+    print(category)
     # Set up pagination
     paginator = Paginator(product, 9)  # 9 products per page
     page_number = request.GET.get('page')  # Get the page number from the query parameters
@@ -111,6 +114,7 @@ def productsView(request, id):
     context = {
         'product': product_list,
         'page_obj': page_obj,  # Pass the page object to the template
+        'category': category
     }
     return render(request, 'product.html', context)
 

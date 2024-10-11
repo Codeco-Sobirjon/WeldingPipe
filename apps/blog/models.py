@@ -7,7 +7,7 @@ class Category(models.Model):
     name = models.CharField(_("Название категория"), max_length=250, null=True, blank=True)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True,
                                verbose_name="Родитель категории", related_name='subcategories')
-
+    description = CKEditor5Field(config_name='extends', verbose_name="Краткое описание")
     created_at = models.DateField(auto_now_add=True, null=True, blank=True, verbose_name="Дата публикации")
 
     objects = models.Manager()
