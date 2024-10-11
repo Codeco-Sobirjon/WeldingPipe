@@ -52,7 +52,6 @@ def contactView(request):
         comment = request.POST.get('message')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
-        print(file2)
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
@@ -62,6 +61,7 @@ def contactView(request):
             file1=file1,
             file2=file2
         )
+        send_html_email()
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
