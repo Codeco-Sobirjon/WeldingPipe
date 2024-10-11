@@ -13,17 +13,31 @@
 
 			<!-- Carousel Box -->
 			<div class="carousel-box">
-				<div class="project-single-carousel owl-carousel owl-theme">
-					{% for im in images %}
-					<div class="slide">
-						<div class="image">
-							<img src="{{ im.image.url }}" style="object-fit:contain; height: 600px" alt="" />
-						</div>
-					</div>
-					{% endfor %}
+    <div class="project-single-carousel owl-carousel owl-theme">
+        {% for im in images %}
+        <div class="slide">
+            <div class="image">
+                <img src="{{ im.image.url }}" style="object-fit:contain; height: 600px" alt=""
+                     data-toggle="modal" data-target="#imageModal"
+                     onclick="showImage('{{ im.image.url }}')" />
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
-				</div>
-			</div>
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1"  role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:500px; height:500px"  role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="" style="width: 100%; object-fit: contain; height: auto;" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 			<h3>Описание</h3>
 			<p>{{ product.description|safe }}</p>
@@ -60,4 +74,10 @@
 		</div>
 	</section>
 
+
+<script>
+    function showImage(imageUrl) {
+        document.getElementById('modalImage').src = imageUrl;
+    }
+</script>
 {% endblock %}
