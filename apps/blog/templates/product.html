@@ -6,60 +6,59 @@
 <section class="blogs-page-section">
     <div class="auto-container">
 
-        {% if product category %}
-        <div class="row clearfix">
-            <!-- Iterate over the products -->
-            {% for item in product %}
-                <!-- News Block Two -->
-                <div class="news-block-two col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image">
-                            <a class="read-more" href="{% url 'detail' item.pro.id %}">
-                                <img src="{{ item.images.image.url }}" style="object-fit:cover; height:300px;" alt="{{ item.pro.name }}" />
-                            </a>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="post-info">
-                            	<li><span class="icon fa fa-user"></span> </li>
-                                <li><span class="icon fa fa-calendar"></span> {{ item.pro.created_at|date:"d F Y" }}</li>  <!-- Adjust date formatting as needed -->
-                                <li><span class="icon fa fa-gear"></span> {{ item.pro.category.name }}</li>  <!-- Assuming you want to show the product category -->
-                            </ul>
-                            <h3><a href="{% url 'detail' item.pro.id %}">{{ item.pro.name }}</a></h3>  <!-- Product name as the title -->
-
-                        </div>
+        {% if product %}
+    <div class="row clearfix">
+        <!-- Iterate over the products -->
+        {% for item in product %}
+            <!-- Product Block -->
+            <div class="news-block-two col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <div class="image">
+                        <a class="read-more" href="{% url 'detail' item.pro.id %}">
+                            <img src="{{ item.images.image.url }}" style="object-fit:cover; height:300px;" alt="{{ item.pro.name }}" />
+                        </a>
+                    </div>
+                    <div class="lower-content">
+                        <ul class="post-info">
+                            <li><span class="icon fa fa-user"></span> </li>
+                            <li><span class="icon fa fa-calendar"></span> {{ item.pro.created_at|date:"d F Y" }}</li>
+                            <li><span class="icon fa fa-gear"></span> {{ item.pro.category.name }}</li>
+                        </ul>
+                        <h3><a href="{% url 'detail' item.pro.id %}">{{ item.pro.name }}</a></h3>
                     </div>
                 </div>
-                <!-- End News Block Two -->
+            </div>
+            <!-- End Product Block -->
+        {% endfor %}
+    </div>
+
+    <!-- Post Share Options -->
+    <div class="styled-pagination text-center">
+        <ul class="clearfix">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><span class="fa fa-angle-left"></span></a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
+            {% endif %}
+            <li class="active"><a href="#">{{ page_obj.number }}</a></li>
+            {% for i in page_obj.paginator.page_range %}
+                {% if i != page_obj.number %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
             {% endfor %}
-
-        </div>
-
-        <!-- Post Share Options -->
-        <div class="styled-pagination text-center">
-            <ul class="clearfix">
-                {% if page_obj.has_previous %}
-                    <li><a href="?page=1"><span class="fa fa-angle-left"></span></a></li>
-                    <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
-                {% endif %}
-                <li class="active"><a href="#">{{ page_obj.number }}</a></li>
-                {% for i in page_obj.paginator.page_range %}
-                    {% if i != page_obj.number %}
-                        <li><a href="?page={{ i }}">{{ i }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
-                    <li><a href="?page={{ page_obj.paginator.num_pages }}"><span class="fa fa-angle-right"></span></a></li>
-                {% endif %}
-            </ul>
-        </div>
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
+                <li><a href="?page={{ page_obj.paginator.num_pages }}"><span class="fa fa-angle-right"></span></a></li>
+            {% endif %}
+        </ul>
+    </div>
     <p>{{ category.description|safe }}</p>
-        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
-    {% else %}
-        <div class="row clearfix">
-            <h1> Не найдено </h1>
-        </div>
-    {% endif %}
+    <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+{% else %}
+    <div class="row clearfix">
+        <h1>Не найдено</h1>
+        <p>Пожалуйста, проверьте другие категории или товары.</p>
+    </div>
+{% endif %}
 
     </div>
 </section>

@@ -89,13 +89,27 @@ def categoriesView(request):
 
 
 def productsView(request, id):
+    # Get the category
     queryset = get_object_or_404(Category, id=id)
 
     # Get all products for the given category
     product = Product.objects.select_related('category').filter(category=queryset).order_by('-id')
+
+    # Check if there are any products
+    if not product.exists():
+        # If no products, return the category description with a message
+        context = {
+            'product': [],
+            'page_obj': None,  # No pagination needed
+            'category': queryset
+        }
+        return render(request, 'product.html', context)
+
+    # Get the first product
     product_first = product.first()
 
-    category = Category.objects.filter(id=product_first.category.id).first()
+    # Get the category for the first product
+    category = product_first.category if product_first else queryset
 
     # Set up pagination
     paginator = Paginator(product, 9)  # 9 products per page
@@ -105,7 +119,7 @@ def productsView(request, id):
     # Prepare the product list with images
     product_list = []
     for pro in page_obj:
-        pro_images = ProductImage.objects.select_related('product').filter(product=pro).first()
+        pro_images = ProductImage.objects.filter(product=pro).first()  # This retrieves the first image
         product_list.append({
             'pro': pro,
             'images': pro_images
