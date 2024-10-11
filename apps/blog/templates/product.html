@@ -6,7 +6,7 @@
 <section class="blogs-page-section">
     <div class="auto-container">
 
-        {% if product %}
+        {% if product category %}
         <div class="row clearfix">
             <!-- Iterate over the products -->
             {% for item in product %}
@@ -53,14 +53,14 @@
                 {% endif %}
             </ul>
         </div>
-
+    <p>{{ category.description|safe }}</p>
+        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
     {% else %}
         <div class="row clearfix">
             <h1> Не найдено </h1>
         </div>
     {% endif %}
-<p>{{ category.description|safe }}</p>
-        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+
     </div>
 </section>
 

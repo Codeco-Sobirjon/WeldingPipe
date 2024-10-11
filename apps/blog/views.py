@@ -96,7 +96,7 @@ def productsView(request, id):
     product_first = product.first()
 
     category = Category.objects.filter(id=product_first.category.id).first()
-    print(category)
+
     # Set up pagination
     paginator = Paginator(product, 9)  # 9 products per page
     page_number = request.GET.get('page')  # Get the page number from the query parameters
