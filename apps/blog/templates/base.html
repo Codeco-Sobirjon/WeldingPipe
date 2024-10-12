@@ -26,28 +26,43 @@
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
 	<style>
-		.custom-file-upload {
-    margin-bottom: 15px;
-}
+    .custom-file-upload {
+        margin-bottom: 15px;
+        flex: 1; /* Ensure equal width for columns */
+    }
 
-.custom-label {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    background-color: white;
-    color: #333;
-}
+    .custom-label {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: white;
+        color: #333;
+        overflow: hidden; /* Prevent overflow */
+        text-overflow: ellipsis; /* Use ellipsis for overflow text */
+        white-space: nowrap; /* Prevent wrapping */
+    }
 
-.plus-icon {
-    font-size: 20px;
-    margin-right: 10px;
-    color: #333;
-}
-	</style>
+    .plus-icon {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #333;
+    }
+
+    @media (max-width: 768px) {
+        .custom-file-upload {
+            margin-bottom: 10px; /* Adjust spacing for smaller screens */
+        }
+        .custom-label {
+            padding: 8px 15px; /* Adjust padding for smaller screens */
+            font-size: 14px; /* Adjust font size for smaller screens */
+            margin-left: 15px
+        }
+    }
+</style>
 </head>
 
 <body class="hidden-bar-wrapper">

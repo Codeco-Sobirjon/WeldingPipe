@@ -72,20 +72,20 @@
 									</div>
 
 									<div class="row d-flex justify-content-between w-100">
-    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-6">
-        <label for="file1" class="custom-label" id="file1-label">
-            <span class="plus-icon"></span> Прикрепить заявку
-        </label>
-        <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
-    </div>
+										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+											<label for="file1" class="custom-label" id="file1-label">
+												<span class="plus-icon"></span> Прикрепить заявку
+											</label>
+											<input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
+										</div>
 
-    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-6">
-        <label for="file2" class="custom-label" id="file2-label">
-            <span class="plus-icon"></span> Прикрепить реквизиты
-        </label>
-        <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
-    </div>
-</div>
+										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+											<label for="file2" class="custom-label" id="file2-label">
+												<span class="plus-icon"></span> Прикрепить реквизиты
+											</label>
+											<input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
+										</div>
+									</div>
 
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
 										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
@@ -127,15 +127,19 @@
 </section>
 
 <script>
-	function updateFileName(inputId) {
-    const input = document.getElementById(inputId);
-    const label = document.getElementById(inputId + '-label');
+    function updateFileName(inputId) {
+        const input = document.getElementById(inputId);
+        const label = document.getElementById(inputId + '-label');
 
-    // Get the selected file name
-    const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
+        // Get the selected file name
+        const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
 
-    // Update the label text
-    label.innerHTML = `<span class="plus-icon"></span> ${fileName}`;
-}
+        // Truncate the file name if it's too long
+        const maxLength = 20; // Set your desired max length
+        const truncatedName = fileName.length > maxLength ? fileName.slice(0, maxLength) + '...' : fileName;
+
+        // Update the label text
+        label.innerHTML = `<span class="plus-icon"></span> ${truncatedName}`;
+    }
 </script>
 {% endblock content %}
