@@ -126,20 +126,5 @@
     </div>
 </section>
 
-<script>
-    function updateFileName(inputId) {
-        const input = document.getElementById(inputId);
-        const label = document.getElementById(inputId + '-label');
 
-        // Get the selected file name
-        const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
-
-        // Truncate the file name if it's too long
-        const maxLength = 20; // Set your desired max length
-        const truncatedName = fileName.length > maxLength ? fileName.slice(0, maxLength) + '...' : fileName;
-
-        // Update the label text
-        label.innerHTML = `<span class="plus-icon"></span> ${truncatedName}`;
-    }
-</script>
 {% endblock content %}

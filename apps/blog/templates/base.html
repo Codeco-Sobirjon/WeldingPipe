@@ -11,6 +11,11 @@
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 <link href="{% static 'css/slick.css' %}" rel="stylesheet">
 <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!--Color Switcher Mockup-->
 <link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
 <!--Color Themes-->
@@ -61,6 +66,9 @@
             font-size: 14px; /* Adjust font size for smaller screens */
             margin-left: 15px
         }
+    }
+		.custom-file-upload {
+        margin-bottom: 15px;
     }
 </style>
 </head>
@@ -132,7 +140,8 @@
 
 							<!--Info Box-->
 							<div class="upper-column info-box">
-								<a href="{% url 'contact' %}" class="theme-btn btn-style-two">Отправить заявку</a>
+								<a href="#" class="theme-btn btn-style-two" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
+<!--								<a href="{% url 'contact' %}" class="theme-btn btn-style-two">Отправить заявку</a>-->
 							</div>
                         </div>
 
@@ -206,6 +215,53 @@
         <!--End Header Upper-->
 
     </header>
+	<!-- Modal -->
+
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                            <!-- Contact Form -->
+                            <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text" name="full_name" class="form-control" placeholder="Ваше Имя" required>
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text" name="company_name" class="form-control" placeholder="Название компании" required>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <input type="text" name="phone" class="form-control" placeholder="Телефон" required>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <textarea name="message" class="form-control" rows="4" placeholder="Сообщение"></textarea>
+                                    </div>
+                                    <div class="row d-flex justify-content-between w-100 ml-1">
+                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                            <label for="file1" class="custom-label" id="file1-label">
+                                                <span class="plus-icon"></span> Прикрепить заявку
+                                            </label>
+                                            <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
+                                        </div>
+                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                            <label for="file2" class="custom-label" id="file2-label">
+                                                <span class="plus-icon"></span> Прикрепить реквизиты
+                                            </label>
+                                            <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <button class="btn btn-primary btn-block" type="submit" name="submit-form">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
     <!--End Main Header -->
 
 	<!--Main Slider-->
@@ -220,7 +276,7 @@
 						<h2>Качество по разумным ценам</h2>
 						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
                     	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
 						</div>
                     </div>
                 </div>
@@ -233,7 +289,7 @@
 						<h2>Компания Армснаб-74 - поставки трубопроводной арматуры. </h2>
 						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
                     	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
 						</div>
                     </div>
                 </div>
@@ -246,7 +302,7 @@
 						<h2>Армснаб-74 - это решение поствленных задач в кротчайшие сроки.</h2>
 						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
                     	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
 						</div>
                     </div>
                 </div>
@@ -410,7 +466,22 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function updateFileName(inputId) {
+        const input = document.getElementById(inputId);
+        const label = document.getElementById(inputId + '-label');
 
+        // Get the selected file name
+        const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
+
+        // Truncate the file name if it's too long
+        const maxLength = 20; // Set your desired max length
+        const truncatedName = fileName.length > maxLength ? fileName.slice(0, maxLength) + '...' : fileName;
+
+        // Update the label text
+        label.innerHTML = `<span class="plus-icon"></span> ${truncatedName}`;
+    }
+</script>
 </body>
 
 </html>

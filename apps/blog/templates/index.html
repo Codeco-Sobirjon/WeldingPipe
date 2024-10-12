@@ -28,50 +28,7 @@
 							</div>
 						</div>
 						<div class="text">Компания Армснаб-74 осуществляет поставки трубопроводной арматуры во все регионы России и ближнего зарубежья. Полное сопровождение клиента, на всех этапах сделки. Низкие цены, высокое качество продукции гарантированы.</div>
-						<a href="{% url 'contact' %}" class="theme-btn btn-style-three">Сделать заказ</a>
-
-						<!-- Counter Box -->
-<!--						<div class="counter-box">-->
-
-<!--							<div class="fact-counter">-->
-<!--								<div class="row clearfix">-->
-
-<!--									&lt;!&ndash;Column&ndash;&gt;-->
-<!--									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">-->
-<!--										<div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">-->
-<!--											<div class="count-outer count-box">-->
-<!--												<h4 class="counter-title">Клиент</h4>-->
-<!--												<span class="count-text" data-speed="3000" data-stop="1200">100</span>+-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-
-<!--									&lt;!&ndash;Column&ndash;&gt;-->
-<!--									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">-->
-<!--										<div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">-->
-<!--											<div class="count-outer count-box">-->
-<!--												<h4 class="counter-title">Фабрики</h4>-->
-<!--												<span class="count-text" data-speed="2500" data-stop="800">100</span>+-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-
-<!--									&lt;!&ndash;Column&ndash;&gt;-->
-<!--									<div class="column counter-column col-lg-4 col-md-4 col-sm-12">-->
-<!--										<div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">-->
-<!--											<div class="count-outer count-box">-->
-<!--												<h4 class="counter-title">Рынки</h4>-->
-<!--												<span class="count-text" data-speed="2000" data-stop="99">200</span>+-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-
-<!--								</div>-->
-
-<!--							</div>-->
-
-<!--						</div>-->
-
+						<a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
 					</div>
 				</div>
 
@@ -89,7 +46,7 @@
 		<div class="auto-container">
 			<h2>Поручите нам свой проект и  Вы получите  <span class="theme_color">специальное предложение</span> <br> Армснаб-74</h2>
 <!--			<div class="text">Начиная с закупок, обработки и заканчивая хранением на складе,  <br> каждое звено строго контролируется для обеспечения качества продукции.</div>-->
-			<a href="{% url 'contact' %}" class="theme-btn btn-style-four">Отправить заявку</a>
+			<a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
 		</div>
 	</section>
 	<!-- End Call To Action Section -->
@@ -203,7 +160,7 @@
                 	<h2>Основными видами продукции являются: Отводы, переходы, тройники, фланцы, запорная арматура. </h2>
                 </div>
                 <div class="pull-right">
-                	<a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+                	<a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
                 </div>
 
             </div>
@@ -256,20 +213,20 @@
 										<textarea name="message" placeholder="Сообщение"></textarea>
 									</div>
 									<div class="row d-flex justify-content-between w-100">
-    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-        <label for="file1" class="custom-label" id="file1-label">
-            <span class="plus-icon"></span> Прикрепить заявку
-        </label>
-        <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
-    </div>
+										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+											<label for="file1" class="custom-label" id="file1-label">
+												<span class="plus-icon"></span> Прикрепить заявку
+											</label>
+											<input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
+										</div>
 
-    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-        <label for="file2" class="custom-label" id="file2-label">
-            <span class="plus-icon"></span> Прикрепить реквизиты
-        </label>
-        <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
-    </div>
-</div>
+										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+											<label for="file2" class="custom-label" id="file2-label">
+												<span class="plus-icon"></span> Прикрепить реквизиты
+											</label>
+											<input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
+										</div>
+									</div>
 
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
 										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
@@ -285,6 +242,51 @@
 			</div>
 		</div>
 	</section>
+
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                            <!-- Contact Form -->
+                            <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text" name="full_name" class="form-control" placeholder="Ваше Имя" required>
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                        <input type="text" name="company_name" class="form-control" placeholder="Название компании" required>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <input type="text" name="phone" class="form-control" placeholder="Телефон" required>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <textarea name="message" class="form-control" rows="4" placeholder="Сообщение"></textarea>
+                                    </div>
+                                    <div class="row d-flex justify-content-between w-100 ml-1">
+                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                            <label for="file1" class="custom-label" id="file1-label">
+                                                <span class="plus-icon"></span> Прикрепить заявку
+                                            </label>
+                                            <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
+                                        </div>
+                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                            <label for="file2" class="custom-label" id="file2-label">
+                                                <span class="plus-icon"></span> Прикрепить реквизиты
+                                            </label>
+                                            <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <button class="btn btn-primary btn-block" type="submit" name="submit-form">Отправить заявку</button>
+                                    </div>
+                                </div>
+                            </form>
+
+            </div>
+        </div>
+    </div>
+</div>
 	<!-- End Default Section -->
 <script>
     function updateFileName(inputId) {

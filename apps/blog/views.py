@@ -21,7 +21,7 @@ def indexView(request):
         comment = request.POST.get('message')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
-
+        print(file1, file2, full_name)
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
@@ -52,6 +52,7 @@ def contactView(request):
         comment = request.POST.get('message')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
+        print(file1, file2, full_name)
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
