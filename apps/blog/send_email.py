@@ -4,7 +4,7 @@ from django.conf import settings
 import mimetypes, mimetypes
 
 
-def send_html_email(full_name, phone, company_name, comment, file1, file2):
+def send_html_email(full_name, phone, company_name, comment, file1, file2, email):
     # Construct the URLs for the files
     file1_url = f'https://armsnab74.ru/media/file1/{file1}'
     file2_url = f'https://armsnab74.ru/media/file2/{file2}'  # Corrected the URL for file2
@@ -15,6 +15,7 @@ def send_html_email(full_name, phone, company_name, comment, file1, file2):
     html_content = f'''
     <h1>Подробности новой заявки</h1>
     <p><strong>Полное имя:</strong> {full_name}</p>
+    <p><strong>Электронная почта:</strong> {email}</p>
     <p><strong>Телефон:</strong> {phone}</p>
     <p><strong>Название компании:</strong> {company_name}</p>
     <p><strong>Комментарий:</strong> {comment}</p>
@@ -26,7 +27,8 @@ def send_html_email(full_name, phone, company_name, comment, file1, file2):
     <p>Отправлено из armsnab74.ru</p>
     '''
 
-    recipient_list = ['Gain11@mail.ru']   # Replace with the recipient's email
+    recipient_list = ['sobirjon.bobojonov@mail.ru']   # Replace with the recipient's email
+    # recipient_list = ['Gain11@mail.ru']   # Replace with the recipient's email
 
     email = EmailMessage(
         subject,

@@ -19,19 +19,21 @@ def indexView(request):
         phone = request.POST.get('phone')
         company_name = request.POST.get('company_name')
         comment = request.POST.get('message')
+        email = request.POST.get('email')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
-        print(file1, file2, full_name)
+
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
             phone=phone,
             company_name=company_name,
             comment=comment,
+            email=email,
             file1=file1,
             file2=file2
         )
-        send_html_email(full_name, phone, company_name, comment, file1, file2)
+        send_html_email(full_name, phone, company_name, comment, file1, file2, email)
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
 
@@ -50,6 +52,7 @@ def contactView(request):
         phone = request.POST.get('phone')
         company_name = request.POST.get('company_name')
         comment = request.POST.get('message')
+        email = request.POST.get('email')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
         print(file1, file2, full_name)
@@ -59,10 +62,11 @@ def contactView(request):
             phone=phone,
             company_name=company_name,
             comment=comment,
+            email=email,
             file1=file1,
             file2=file2
         )
-        send_html_email(full_name, phone, company_name, comment, file1, file2)
+        send_html_email(full_name, phone, company_name, comment, file1, file2, email)
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL

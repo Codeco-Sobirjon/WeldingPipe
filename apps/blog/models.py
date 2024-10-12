@@ -90,6 +90,7 @@ class ProductImage(models.Model):
 class Contacts(models.Model):
     full_name = models.CharField(_("Полное имя"), max_length=250, null=True, blank=True)
     phone = models.CharField(_("Телефон"), max_length=250, null=True, blank=True)
+    email = models.EmailField(_("Email"), max_length=250, null=True, blank=True)
     company_name = models.CharField(_("Название компании"), max_length=250, null=True, blank=True)
     comment = models.TextField(null=True, blank=True, verbose_name="Комментарий")
     file1 = models.FileField(upload_to='file1/', null=True, blank=True, verbose_name="Прикрепить заявку")

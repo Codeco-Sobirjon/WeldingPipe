@@ -83,7 +83,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Contacts)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['full_name', 'company_name', 'phone', 'created_at']
+    list_display = ['full_name', 'email', 'company_name', 'phone', 'created_at']
     ordering = ['-id']
 
 
