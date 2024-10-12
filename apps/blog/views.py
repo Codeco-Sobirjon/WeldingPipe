@@ -31,7 +31,7 @@ def indexView(request):
             file1=file1,
             file2=file2
         )
-        send_html_email()
+        send_html_email(full_name, phone, company_name, comment, file1, file2)
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
 
@@ -61,7 +61,7 @@ def contactView(request):
             file1=file1,
             file2=file2
         )
-        send_html_email()
+        send_html_email(full_name, phone, company_name, comment, file1, file2)
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
