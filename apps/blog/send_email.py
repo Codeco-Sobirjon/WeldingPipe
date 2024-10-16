@@ -6,8 +6,8 @@ import mimetypes, mimetypes
 
 def send_html_email(full_name, phone, company_name, comment, file1, file2, email):
     # Construct the URLs for the files
-    file1_url = f'https://armsnab74.ru/media/{file1}'
-    file2_url = f'https://armsnab74.ru/media/{file2}'  # Corrected the URL for file2
+    file1_url = f'https://armsnab74.ru/media/file1/{file1}'
+    file2_url = f'https://armsnab74.ru/media/file1/{file2}'  # Corrected the URL for file2
     subject = 'New Submission from ' + full_name  # Add a subject based on the user's name
 
     # Create the HTML content with links to the files
