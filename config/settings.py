@@ -23,6 +23,7 @@ LOCAL_APPS = [
 
 THIRD_PART_APPS = [
     'django_ckeditor_5',
+    'django.contrib.sitemaps',
     *LOCAL_APPS,
 ]
 

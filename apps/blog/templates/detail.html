@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+<meta name="description" content="⭐⭐⭐⭐⭐ Категории нашей компании: {{ product.name }}">
+<meta name="keywords" content="Армснаб-74, Армснаб, Армснаб 74, трубопроводной арматуры, арматуры, трубопроводной,">
+
+<meta property="og:title" content="{{ product.name }} | Армснаб-74">
+<meta property="og:description" content="Категории нашей компании">
+<meta property="og:url" content="https://armsnab74.ru/detail/{{ product.name }}">
+<meta property="og:type" content="{{ product.description|safe }}">
+{% endblock %
+
 
 {% block content %}
 	<section class="projects-single-section">

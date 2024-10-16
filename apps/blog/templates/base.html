@@ -4,487 +4,542 @@
 
 
 <head>
-<meta charset="utf-8">
-<title>АРМСНАБ-74</title>
-<!-- Stylesheets -->
-<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-<link href="{% static 'css/style.css' %}" rel="stylesheet">
-<link href="{% static 'css/slick.css' %}" rel="stylesheet">
-<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+	<meta charset="utf-8">
+
+	{% block meta %}
+	{% endblock %}
+
+	<title>АРМСНАБ-74</title>
+	<!-- Stylesheets -->
+	<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/slick.css' %}" rel="stylesheet">
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!--Color Switcher Mockup-->
-<link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
-<!--Color Themes-->
-<link id="theme-color-file" href="{% static 'css/color-themes/default-theme.css' %}" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!--Color Switcher Mockup-->
+	<link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
+	<!--Color Themes-->
+	<link id="theme-color-file" href="{% static 'css/color-themes/default-theme.css' %}" rel="stylesheet">
 
-<link rel="shortcut icon" href="{% static 'images/logos13.png' %}" type="image/x-icon">
-<link rel="icon" href="{% static 'images/logos13.png' %}" type="image/x-icon">
+	<link rel="shortcut icon" href="{% static 'images/logos13.png' %}" type="image/x-icon">
+	<link rel="icon" href="{% static 'images/logos13.png' %}" type="image/x-icon">
 
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- Responsive -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
 	<style>
-    .custom-file-upload {
-        margin-bottom: 15px;
-        flex: 1; /* Ensure equal width for columns */
-    }
-
-    .custom-label {
-        display: inline-flex;
-        align-items: center;
-        border: 1px solid #ccc;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        background-color: white;
-        color: #333;
-        overflow: hidden; /* Prevent overflow */
-        text-overflow: ellipsis; /* Use ellipsis for overflow text */
-        white-space: nowrap; /* Prevent wrapping */
-    }
-
-    .plus-icon {
-        font-size: 20px;
-        margin-right: 10px;
-        color: #333;
-    }
-
-    @media (max-width: 768px) {
-        .custom-file-upload {
-            margin-bottom: 10px; /* Adjust spacing for smaller screens */
-        }
-        .custom-label {
-            padding: 8px 15px; /* Adjust padding for smaller screens */
-            font-size: 14px; /* Adjust font size for smaller screens */
-            margin-left: 15px
-        }
-    }
 		.custom-file-upload {
-        margin-bottom: 15px;
-    }
-</style>
+			margin-bottom: 15px;
+			flex: 1;
+			/* Ensure equal width for columns */
+		}
+
+		.custom-label {
+			display: inline-flex;
+			align-items: center;
+			border: 1px solid #ccc;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			background-color: white;
+			color: #333;
+			overflow: hidden;
+			/* Prevent overflow */
+			text-overflow: ellipsis;
+			/* Use ellipsis for overflow text */
+			white-space: nowrap;
+			/* Prevent wrapping */
+		}
+
+		.plus-icon {
+			font-size: 20px;
+			margin-right: 10px;
+			color: #333;
+		}
+
+		@media (max-width: 768px) {
+			.custom-file-upload {
+				margin-bottom: 10px;
+				/* Adjust spacing for smaller screens */
+			}
+
+			.custom-label {
+				padding: 8px 15px;
+				/* Adjust padding for smaller screens */
+				font-size: 14px;
+				/* Adjust font size for smaller screens */
+				margin-left: 15px
+			}
+		}
+
+		.custom-file-upload {
+			margin-bottom: 15px;
+		}
+	</style>
 </head>
 
 <body class="hidden-bar-wrapper">
 
-<div class="page-wrapper">
+	<div class="page-wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader"></div>
+		<!-- Preloader -->
+		<div class="preloader"></div>
 
- 	<!-- Main Header-->
-    <header class="main-header">
+		<!-- Main Header-->
+		<header class="main-header">
 
-		<!--Header Top-->
-    	<div class="header-top">
-    		<div class="auto-container">
-				<div class="clearfix">
-					<!--Top Left-->
-					<div class="top-left">
-						<ul>
-							<li><span class="icon fa fa-map-marker"></span> г.Челябинск , Свердловский Тракт, 13А </li>
-						</ul>
-					</div>
-					<!--Top Right-->
-					<div class="top-right">
-						<div class="timing">пн-пт.: 9:00 — 17:00, сб., вс.: выходной</div>
-						<!--Social Box-->
-						<ul class="social-box">
-							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-							<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-						</ul>
-						<!--Language-->
+			<!--Header Top-->
+			<div class="header-top">
+				<div class="auto-container">
+					<div class="clearfix">
+						<!--Top Left-->
+						<div class="top-left">
+							<ul>
+								<li><span class="icon fa fa-map-marker"></span> г.Челябинск , Свердловский Тракт, 13А
+								</li>
+							</ul>
+						</div>
+						<!--Top Right-->
+						<div class="top-right">
+							<div class="timing">пн-пт.: 9:00 — 17:00, сб., вс.: выходной</div>
+							<!--Social Box-->
+							<ul class="social-box">
+								<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+								<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+								<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+								<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+							</ul>
+							<!--Language-->
 
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-    	<!--Header-Upper-->
-        <div class="header-upper">
-        	<div class="auto-container">
-            	<div class="clearfix">
+			<!--Header-Upper-->
+			<div class="header-upper">
+				<div class="auto-container">
+					<div class="clearfix">
 
-                	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logos13.png' %}" width="250px" height="100px" alt="" title=""></a></div>
+						<div class="pull-left logo-box">
+							<div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logos13.png' %}"
+										width="250px" height="100px" alt="" title=""></a></div>
 
-                    </div>
+						</div>
 
-                    <div class="pull-right upper-right">
-                    	<div class="info-outer clearfix">
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<div class="icon-box"><span class="flaticon-contact-1"></span></div>
-								<ul>
-									<li><span>Телефон</span> <br> +7 (967)-862-4431 <br> +7 (995)-652-4431</li>
-								</ul>
+						<div class="pull-right upper-right">
+							<div class="info-outer clearfix">
+								<!--Info Box-->
+								<div class="upper-column info-box">
+									<div class="icon-box"><span class="flaticon-contact-1"></span></div>
+									<ul>
+										<li><span>Телефон</span> <br> +7 (967)-862-4431 <br> +7 (995)-652-4431</li>
+									</ul>
+								</div>
+
+								<!--Info Box-->
+								<div class="upper-column info-box">
+									<div class="icon-box"><span class="flaticon-email-2"></span></div>
+									<ul>
+										<li><span>E-mail</span> <br> Gain11@mail.ru</li>
+									</ul>
+								</div>
+
+								<!--Info Box-->
+								<div class="upper-column info-box">
+									<a href="#" class="theme-btn btn-style-two" data-toggle="modal"
+										data-target="#orderModal">Отправить заявку</a>
+									<!--								<a href="{% url 'contact' %}" class="theme-btn btn-style-two">Отправить заявку</a>-->
+								</div>
 							</div>
 
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<div class="icon-box"><span class="flaticon-email-2"></span></div>
-								<ul>
-									<li><span>E-mail</span> <br> Gain11@mail.ru</li>
-								</ul>
-							</div>
+							<!--Header Lower-->
+							<div class="header-lower">
 
-							<!--Info Box-->
-							<div class="upper-column info-box">
-								<a href="#" class="theme-btn btn-style-two" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
-<!--								<a href="{% url 'contact' %}" class="theme-btn btn-style-two">Отправить заявку</a>-->
-							</div>
-                        </div>
-
-						<!--Header Lower-->
-						<div class="header-lower">
-
-							<div class="nav-outer clearfix">
-								<!-- Main Menu -->
-								<nav class="main-menu navbar-expand-md">
-									<div class="navbar-header">
-										<!-- Toggle Button -->
-										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-											<span class="icon-bar"></span>
-										</button>
-									</div>
-
-									<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-										<ul class="navigation clearfix">
-											<li class="current dropdown"><a href="{% url 'index' %}">Главная страница</a>
-											</li>
-											<li class="dropdown"><a href="{% url 'categories' %}">Каталог продукции</a>
-											</li>
-											<li class="dropdown"><a href="{% url 'about' %}">О компании</a>
-											</li>
-											<li class="dropdown"><a href="{% url 'contact' %}">Контакты</a>
-											</li>
-										</ul>
-									</div>
-								</nav>
-
-								<!-- Main Menu End-->
-								<div class="outer-box clearfix">
-
-									<!--Option Box-->
-									<div class="option-box">
-										<!--Search Box-->
-										<div class="search-box-outer">
-											<div class="dropdown">
-												<button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
-												<ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
-													<li class="panel-outer">
-														<div class="form-container">
-															<form method="post" action="http://ary-themes.com/html/buliten/blog.html">
-																<div class="form-group">
-																	<input type="search" name="field-name" value="" placeholder="Ищите здесь" required>
-																	<button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
-																</div>
-															</form>
-														</div>
-													</li>
-												</ul>
-											</div>
+								<div class="nav-outer clearfix">
+									<!-- Main Menu -->
+									<nav class="main-menu navbar-expand-md">
+										<div class="navbar-header">
+											<!-- Toggle Button -->
+											<button class="navbar-toggler" type="button" data-toggle="collapse"
+												data-target="#navbarSupportedContent"
+												aria-controls="navbarSupportedContent" aria-expanded="false"
+												aria-label="Toggle navigation">
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+											</button>
 										</div>
 
+										<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+											<ul class="navigation clearfix">
+												<li class="current dropdown"><a href="{% url 'index' %}">Главная
+														страница</a>
+												</li>
+												<li class="dropdown"><a href="{% url 'categories' %}">Каталог
+														продукции</a>
+												</li>
+												<li class="dropdown"><a href="{% url 'about' %}">О компании</a>
+												</li>
+												<li class="dropdown"><a href="{% url 'contact' %}">Контакты</a>
+												</li>
+											</ul>
+										</div>
+									</nav>
+
+									<!-- Main Menu End-->
+									<div class="outer-box clearfix">
+
+										<!--Option Box-->
+										<div class="option-box">
+											<!--Search Box-->
+											<div class="search-box-outer">
+												<div class="dropdown">
+													<button class="search-box-btn dropdown-toggle" type="button"
+														id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+														aria-expanded="false"><span
+															class="fa fa-search"></span></button>
+													<ul class="dropdown-menu pull-right search-panel"
+														aria-labelledby="dropdownMenu3">
+														<li class="panel-outer">
+															<div class="form-container">
+																<form method="post"
+																	action="http://ary-themes.com/html/buliten/blog.html">
+																	<div class="form-group">
+																		<input type="search" name="field-name" value=""
+																			placeholder="Ищите здесь" required>
+																		<button type="submit" class="search-btn"><span
+																				class="fa fa-search"></span></button>
+																	</div>
+																</form>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="side-curve"></div>
+								</div>
+
+							</div>
+							<!--End Header Lower-->
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<!--End Header Upper-->
+
+		</header>
+		<!-- Modal -->
+
+
+		<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- Contact Form -->
+						<form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="row">
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="full_name" class="form-control" placeholder="Ваше Имя"
+										required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="company_name" class="form-control"
+										placeholder="Название компании" required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="phone" class="form-control" placeholder="Телефон" required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="email" name="email" class="form-control"
+										placeholder="Электронная почта" required>
+								</div>
+								<div class="form-group col-lg-12 col-md-12 col-sm-12">
+									<textarea name="message" class="form-control" rows="4"
+										placeholder="Сообщение"></textarea>
+								</div>
+								<div class="row d-flex justify-content-between w-100 ml-1">
+									<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+										<label for="file1" class="custom-label" id="file1-label">
+											<span class="plus-icon"></span> Прикрепить заявку
+										</label>
+										<input type="file" id="file1" name="file1" style="display:none"
+											onchange="updateFileName('file1')">
+									</div>
+									<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+										<label for="file2" class="custom-label" id="file2-label">
+											<span class="plus-icon"></span> Прикрепить реквизиты
+										</label>
+										<input type="file" id="file2" name="file2" style="display:none"
+											onchange="updateFileName('file2')">
 									</div>
 								</div>
-								<div class="side-curve"></div>
-							</div>
-
-						</div>
-						<!--End Header Lower-->
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-        <!--End Header Upper-->
-
-    </header>
-	<!-- Modal -->
-
-
-<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                            <!-- Contact Form -->
-                            <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
-                                {% csrf_token %}
-                                <div class="row">
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="full_name" class="form-control" placeholder="Ваше Имя" required>
-                                    </div>
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="company_name" class="form-control" placeholder="Название компании" required>
-                                    </div>
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="phone" class="form-control" placeholder="Телефон" required>
-                                    </div>
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="email" name="email" class="form-control" placeholder="Электронная почта" required>
-                                    </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea name="message" class="form-control" rows="4" placeholder="Сообщение"></textarea>
-                                    </div>
-                                    <div class="row d-flex justify-content-between w-100 ml-1">
-                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-                                            <label for="file1" class="custom-label" id="file1-label">
-                                                <span class="plus-icon"></span> Прикрепить заявку
-                                            </label>
-                                            <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
-                                        </div>
-                                        <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-                                            <label for="file2" class="custom-label" id="file2-label">
-                                                <span class="plus-icon"></span> Прикрепить реквизиты
-                                            </label>
-                                            <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <button class="theme-btn btn-style-three btn-block" type="submit" name="submit-form">Отправить заявку</button>
-                                    </div>
-                                </div>
-                            </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-    <!--End Main Header -->
-
-	<!--Main Slider-->
-    <section class="main-slider">
-
-        <div class="main-slider-carousel owl-carousel owl-theme">
-
-            <div class="slide" style="background-image:url({% static 'images/145.jpg' %})">
-                <div class="auto-container">
-                	<div class="content clearfix">
-						<div class="title">АРМСНАБ-74</div>
-						<h2>Качество по разумным ценам</h2>
-						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
-                    	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
-						</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide" style="background-image:url({% static 'images/main-slider/88.jpeg' %})">
-                <div class="auto-container">
-                	<div class="content clearfix">
-						<div class="title">АРМСНАБ-74</div>
-						<h2>Компания Армснаб-74 - поставки трубопроводной арматуры. </h2>
-						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
-                    	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
-						</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide" style="background-image:url({% static 'images/main-slider/55.jpg' %})">
-                <div class="auto-container">
-                	<div class="content clearfix">
-						<div class="title">АРМСНАБ-74</div>
-						<h2>Армснаб-74 - это решение поствленных задач в кротчайшие сроки.</h2>
-						<div class="text">Поручите нам свой проект и Вы получите специальное предложение от Армснаб-74</div>
-                    	<div class="link-box">
-							<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a> <a href="#" class="theme-btn btn-style-three" data-toggle="modal" data-target="#orderModal">Отправить заявку</a>
-						</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-		<!-- Left Title -->
-		<div class="left-title">АРМСНАБ-74</div>
-
-		<div class="auto-container">
-			<!-- Social Box -->
-			<div class="social-box">
-				<a href="#"><span class="fa fa-facebook"></span></a>
-				<a href="#"><span class="fa fa-twitter"></span></a>
-				<a href="#"><span class="fa fa-skype"></span></a>
-				<a href="#"><span class="fa fa-google-plus"></span></a>
-			</div>
-		</div>
-		<!--Scroll Dwwn Btn-->
-        <div class="mouse-btn-down scroll-to-target" data-target=".welcome-section"></div>
-    </section>
-    <!--End Main Slider-->
-
-	{% block content %}
-	{% endblock content %}
-
-	<br>
-
-	<!--Main Footer-->
-    <footer class="main-footer" style="background-image:url(images/background/10.jpg)">
-
-		<div class="auto-container">
-
-        	<!--Widgets Section-->
-            <div class="widgets-section">
-            	<div class="row clearfix">
-
-
-
-					<!--Footer Column-->
-					<div class="footer-column col-lg-4 col-md-6 col-sm-12">
-						<div class="footer-widget links-widget">
-							<h2>Категории</h2>
-							<div class="row clearfix">
-								<div class="column col-lg-6 col-md-6 col-sm-12">
-									<ul class="list">
-										{% for cat in categories %}
-										<li><a href="{% url 'product' cat.id %}">{{ cat.name }}</a></li>
-										{% endfor %}
-									</ul>
-								</div>
-								<div class="column col-lg-6 col-md-6 col-sm-12">
-									<ul class="list">
-										<li><a href="{% url 'index' %}">Главная страница</a></li>
-										<li><a href="{% url 'categories' %}">Каталог продукции</a></li>
-										<li><a href="{% url 'about' %}">О компании</a></li>
-										<li><a href="{% url 'contact' %}">Контакты</a></li>
-									</ul>
+								<div class="form-group col-lg-12 col-md-12 col-sm-12">
+									<button class="theme-btn btn-style-three btn-block" type="submit"
+										name="submit-form">Отправить заявку</button>
 								</div>
 							</div>
-						</div>
+						</form>
+
 					</div>
-
-					<!--Footer Column-->
-					<div class="footer-column col-lg-8 col-md-6 col-sm-12">
-						<div class="footer-widget news-widget">
-							<h2>Карта</h2>
-							<div class="single-item-carousel owl-carousel owl-theme">
-								<div class="slide">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.014340775173!2d61.38660317705924!3d55.200509034394535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c5ecdcb4d32617%3A0x76627368a183aec8!2sSverdlovskiy%20Trakt%2C%2013%D0%90%2C%20Chelyabinsk%2C%20Chelyabinskaya%20oblast&#39;%2C%20Russia%2C%20454084!5e0!3m2!1sen!2s!4v1728626649852!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
+		<!--End Main Header -->
 
-		<!-- Footer Bottom -->
-		<div class="footer-bottom">
+		<!--Main Slider-->
+		<section class="main-slider">
+
+			<div class="main-slider-carousel owl-carousel owl-theme">
+
+				<div class="slide" style="background-image:url({% static 'images/145.jpg' %})">
+					<div class="auto-container">
+						<div class="content clearfix">
+							<div class="title">АРМСНАБ-74</div>
+							<h2>Качество по разумным ценам</h2>
+							<div class="text">Поручите нам свой проект и Вы получите специальное предложение от
+								Армснаб-74</div>
+							<div class="link-box">
+								<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a>
+								<a href="#" class="theme-btn btn-style-three" data-toggle="modal"
+									data-target="#orderModal">Отправить заявку</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="slide" style="background-image:url({% static 'images/main-slider/88.jpeg' %})">
+					<div class="auto-container">
+						<div class="content clearfix">
+							<div class="title">АРМСНАБ-74</div>
+							<h2>Компания Армснаб-74 - поставки трубопроводной арматуры. </h2>
+							<div class="text">Поручите нам свой проект и Вы получите специальное предложение от
+								Армснаб-74</div>
+							<div class="link-box">
+								<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a>
+								<a href="#" class="theme-btn btn-style-three" data-toggle="modal"
+									data-target="#orderModal">Отправить заявку</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="slide" style="background-image:url({% static 'images/main-slider/55.jpg' %})">
+					<div class="auto-container">
+						<div class="content clearfix">
+							<div class="title">АРМСНАБ-74</div>
+							<h2>Армснаб-74 - это решение поствленных задач в кротчайшие сроки.</h2>
+							<div class="text">Поручите нам свой проект и Вы получите специальное предложение от
+								Армснаб-74</div>
+							<div class="link-box">
+								<a href="{% url 'categories' %}" class="theme-btn btn-style-one">Каталог продукции</a>
+								<a href="#" class="theme-btn btn-style-three" data-toggle="modal"
+									data-target="#orderModal">Отправить заявку</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Left Title -->
+			<div class="left-title">АРМСНАБ-74</div>
+
 			<div class="auto-container">
-				<div class="row clearfix">
-
-					<!-- Copyright Column -->
-					<div class="copyright-column col-lg-6 col-md-12 col-sm-12">
-						<div class="copyright"><a href="#">АРМСНАБ-74</a></div>
-					</div>
-
-					<!-- Social Column -->
-					<div class="social-column col-lg-6 col-md-12 col-sm-12">
-						<ul class="footer-nav">
-							<li><a href="#"><span class="fa fa-facebook"></span></a></li>
-							<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-skype"></span></a></li>
-							<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-						</ul>
-					</div>
-
+				<!-- Social Box -->
+				<div class="social-box">
+					<a href="#"><span class="fa fa-facebook"></span></a>
+					<a href="#"><span class="fa fa-twitter"></span></a>
+					<a href="#"><span class="fa fa-skype"></span></a>
+					<a href="#"><span class="fa fa-google-plus"></span></a>
 				</div>
+			</div>
+			<!--Scroll Dwwn Btn-->
+			<div class="mouse-btn-down scroll-to-target" data-target=".welcome-section"></div>
+		</section>
+		<!--End Main Slider-->
+
+		{% block content %}
+		{% endblock content %}
+
+		<br>
+
+		<!--Main Footer-->
+		<footer class="main-footer" style="background-image:url(images/background/10.jpg)">
+
+			<div class="auto-container">
+
+				<!--Widgets Section-->
+				<div class="widgets-section">
+					<div class="row clearfix">
+
+
+
+						<!--Footer Column-->
+						<div class="footer-column col-lg-4 col-md-6 col-sm-12">
+							<div class="footer-widget links-widget">
+								<h2>Категории</h2>
+								<div class="row clearfix">
+									<div class="column col-lg-6 col-md-6 col-sm-12">
+										<ul class="list">
+											{% for cat in categories %}
+											<li><a href="{% url 'product' cat.id %}">{{ cat.name }}</a></li>
+											{% endfor %}
+										</ul>
+									</div>
+									<div class="column col-lg-6 col-md-6 col-sm-12">
+										<ul class="list">
+											<li><a href="{% url 'index' %}">Главная страница</a></li>
+											<li><a href="{% url 'categories' %}">Каталог продукции</a></li>
+											<li><a href="{% url 'about' %}">О компании</a></li>
+											<li><a href="{% url 'contact' %}">Контакты</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--Footer Column-->
+						<div class="footer-column col-lg-8 col-md-6 col-sm-12">
+							<div class="footer-widget news-widget">
+								<h2>Карта</h2>
+								<div class="single-item-carousel owl-carousel owl-theme">
+									<div class="slide">
+										<iframe
+											src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.014340775173!2d61.38660317705924!3d55.200509034394535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c5ecdcb4d32617%3A0x76627368a183aec8!2sSverdlovskiy%20Trakt%2C%2013%D0%90%2C%20Chelyabinsk%2C%20Chelyabinskaya%20oblast&#39;%2C%20Russia%2C%20454084!5e0!3m2!1sen!2s!4v1728626649852!5m2!1sen!2s"
+											width="100%" height="450" style="border:0;" allowfullscreen=""
+											loading="lazy"></iframe>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Bottom -->
+				<div class="footer-bottom">
+					<div class="auto-container">
+						<div class="row clearfix">
+
+							<!-- Copyright Column -->
+							<div class="copyright-column col-lg-6 col-md-12 col-sm-12">
+								<div class="copyright"><a href="#">АРМСНАБ-74</a></div>
+							</div>
+
+							<!-- Social Column -->
+							<div class="social-column col-lg-6 col-md-12 col-sm-12">
+								<ul class="footer-nav">
+									<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+									<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+									<li><a href="#"><span class="fa fa-skype"></span></a></li>
+									<li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</footer>
+
+	</div>
+	<!--End pagewrapper-->
+
+	<!--Scroll to top-->
+	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+
+	<!-- Color Palate / Color Switcher -->
+
+	<div class="color-palate">
+		<div class="color-trigger">
+			<i class="fa fa-paint-brush"></i>
+		</div>
+		<div class="color-palate-head">
+			<h6>Choose Your Color</h6>
+		</div>
+		<div class="various-color clearfix">
+			<div class="colors-list">
+				<span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
+				<span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
+				<span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
+				<span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
+				<span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
+				<span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
+				<span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
+				<span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
+				<span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
+				<span class="palate lightblue-color" data-theme-file="css/color-themes/lightblue-color.css"></span>
+				<span class="palate pink-color" data-theme-file="css/color-themes/pink-theme.css"></span>
+				<span class="palate hotpink-color" data-theme-file="css/color-themes/hotpink-color.css"></span>
 			</div>
 		</div>
 
-	</footer>
+		<ul class="box-version option-box">
+			<li class="box">Boxed</li>
+			<li>Full width</li>
+		</ul>
+		<ul class="rtl-version option-box">
+			<li class="rtl">RTL Version</li>
+			<li>LTR Version</li>
+		</ul>
 
-</div>
-<!--End pagewrapper-->
+		<a href="#" class="purchase-btn">Purchase now $17</a>
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-arrow-up"></span></div>
+		<div class="palate-foo">
+			<span>You will find much more options for colors and styling in admin panel. This color picker is used only
+				for demonstation purposes.</span>
+		</div>
 
-<!-- Color Palate / Color Switcher -->
+	</div>
 
-<div class="color-palate">
-    <div class="color-trigger">
-        <i class="fa fa-paint-brush"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-            <span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-            <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-			<span class="palate olive-color" data-theme-file="css/color-themes/olive-theme.css"></span>
-            <span class="palate lightblue-color" data-theme-file="css/color-themes/lightblue-color.css"></span>
-            <span class="palate pink-color" data-theme-file="css/color-themes/pink-theme.css"></span>
-            <span class="palate hotpink-color" data-theme-file="css/color-themes/hotpink-color.css"></span>
-        </div>
-    </div>
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+	<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+	<script src="{% static 'js/appear.js' %}"></script>
+	<script src="{% static 'js/owl.js' %}"></script>
+	<script src="{% static 'js/wow.js' %}"></script>
+	<script src="{% static 'js/slick.js' %}"></script>
+	<script src="{% static 'js/jquery-ui.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/color-settings.js' %}"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script>
+		function updateFileName(inputId) {
+			const input = document.getElementById(inputId);
+			const label = document.getElementById(inputId + '-label');
 
-	<ul class="box-version option-box"> <li class="box">Boxed</li> <li>Full width</li></ul>
-	<ul class="rtl-version option-box"> <li class="rtl">RTL Version</li> <li>LTR Version</li> </ul>
+			// Get the selected file name
+			const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
 
-    <a href="#" class="purchase-btn">Purchase now $17</a>
+			// Truncate the file name if it's too long
+			const maxLength = 20; // Set your desired max length
+			const truncatedName = fileName.length > maxLength ? fileName.slice(0, maxLength) + '...' : fileName;
 
-    <div class="palate-foo">
-        <span>You will find much more options for colors and styling in admin panel. This color picker is used only for demonstation purposes.</span>
-    </div>
-
-</div>
-
-<script src="{% static 'js/jquery.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-<script src="{% static 'js/jquery.fancybox.js' %}"></script>
-<script src="{% static 'js/appear.js' %}"></script>
-<script src="{% static 'js/owl.js' %}"></script>
-<script src="{% static 'js/wow.js' %}"></script>
-<script src="{% static 'js/slick.js' %}"></script>
-<script src="{% static 'js/jquery-ui.js' %}"></script>
-<script src="{% static 'js/script.js' %}"></script>
-<script src="{% static 'js/color-settings.js' %}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    function updateFileName(inputId) {
-        const input = document.getElementById(inputId);
-        const label = document.getElementById(inputId + '-label');
-
-        // Get the selected file name
-        const fileName = input.files.length > 0 ? input.files[0].name : 'Прикрепить файл';
-
-        // Truncate the file name if it's too long
-        const maxLength = 20; // Set your desired max length
-        const truncatedName = fileName.length > maxLength ? fileName.slice(0, maxLength) + '...' : fileName;
-
-        // Update the label text
-        label.innerHTML = `<span class="plus-icon"></span> ${truncatedName}`;
-    }
-</script>
+			// Update the label text
+			label.innerHTML = `<span class="plus-icon"></span> ${truncatedName}`;
+		}
+	</script>
 </body>
 
 </html>
