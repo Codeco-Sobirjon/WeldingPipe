@@ -33,6 +33,9 @@ def indexView(request):
             file1=file1,
             file2=file2
         )
+        last_create = Contacts.objects.last()
+        print(last_create.file1)
+        print(last_create.file2)
         send_html_email(full_name, phone, company_name, comment, file1, file2, email)
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL
@@ -55,7 +58,7 @@ def contactView(request):
         email = request.POST.get('email')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
-        print(file1, file2, full_name)
+
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,
@@ -66,7 +69,9 @@ def contactView(request):
             file1=file1,
             file2=file2
         )
-        send_html_email(full_name, phone, company_name, comment, file1, file2, email)
+        last_create = Contacts.objects.last()
+
+        send_html_email(full_name, phone, company_name, comment, last_create.file1, last_create.file2, email)
 
         # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
         return redirect('index')  # Замените 'contact' на правильное имя URL

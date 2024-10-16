@@ -64,10 +64,10 @@
 									</div>
 
 									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="phone" class="form-control" placeholder="Телефон" required>
+                                        <input type="text" name="phone"  placeholder="Телефон" required>
                                     </div>
 									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="email" name="email" class="form-control" placeholder="Ваше электронная почта" required>
+                                        <input type="email" name="email" placeholder="Ваше электронная почта" required>
                                     </div>
 
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -129,5 +129,13 @@
     </div>
 </section>
 
+<script>
+    function updateFileName(fileId) {
+    const fileInput = document.getElementById(fileId);
+    const fileNameSpan = document.getElementById(fileId + '-name');
+    const fileName = fileInput.files.length ? fileInput.files[0].name : 'Файл не выбран';
 
+    fileNameSpan.textContent = fileName;
+}
+</script>
 {% endblock content %}
