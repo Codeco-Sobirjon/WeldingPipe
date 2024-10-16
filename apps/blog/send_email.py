@@ -27,8 +27,8 @@ def send_html_email(full_name, phone, company_name, comment, file1, file2, email
     <p>Отправлено из armsnab74.ru</p>
     '''
 
-    recipient_list = ['sobirjon.bobojonov@mail.ru']   # Replace with the recipient's email
-    # recipient_list = ['Gain11@mail.ru']   # Replace with the recipient's email
+    # recipient_list = ['sobirjon.bobojonov@mail.ru']   # Replace with the recipient's email
+    recipient_list = ['Gain11@mail.ru']   # Replace with the recipient's email
 
     email = EmailMessage(
         subject,
