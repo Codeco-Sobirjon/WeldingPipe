@@ -22,7 +22,6 @@ def indexView(request):
         email = request.POST.get('email')
         file1 = request.FILES.get('file1')
         file2 = request.FILES.get('file2')
-
         # Создаем объект Contacts и сохраняем его
         Contacts.objects.create(
             full_name=full_name,

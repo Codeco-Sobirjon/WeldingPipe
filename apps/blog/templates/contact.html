@@ -47,72 +47,72 @@
 
 <br>
 
-<section class="default-section">
-    <div class="outer-container ">
-        <div class="clearfix">
-            <div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">
-                <div class="inner-column mx-auto">
-                    <!-- Sec Title -->
-                    <div class="sec-title light">
-                        <div class="title-inner">
-                            <div class="title">Отправка данных</div>
-                            <h2>АРМСНАБ-74 Admin</h2>
-                        </div>
-                    </div>
+<!--<section class="default-section">-->
+<!--    <div class="outer-container ">-->
+<!--        <div class="clearfix">-->
+<!--            <div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">-->
+<!--                <div class="inner-column mx-auto">-->
+<!--                    &lt;!&ndash; Sec Title &ndash;&gt;-->
+<!--                    <div class="sec-title light">-->
+<!--                        <div class="title-inner">-->
+<!--                            <div class="title">Отправка данных</div>-->
+<!--                            <h2>АРМСНАБ-74 Admin</h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                    <!-- Quote Form -->
-                    <div class="quote-form mx-auto">
-                        <!--Contact Form-->
-                        <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="row clearfix">
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="full_name" placeholder="Ваше Имя" required>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="company_name" placeholder="Название компании" required>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="text" name="phone" placeholder="Телефон" required>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <input type="email" name="email" placeholder="Ваше электронная почта" required>
-                                </div>
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <textarea name="message" placeholder="Сообщение"></textarea>
-                                </div>
+<!--                    &lt;!&ndash; Quote Form &ndash;&gt;-->
+<!--                    <div class="quote-form mx-auto">-->
+<!--                        &lt;!&ndash;Contact Form&ndash;&gt;-->
+<!--                        <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">-->
+<!--                            {% csrf_token %}-->
+<!--                            <div class="row clearfix">-->
+<!--                                <div class="form-group col-lg-6 col-md-6 col-sm-12">-->
+<!--                                    <input type="text" name="full_name" placeholder="Ваше Имя" required>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-6 col-md-6 col-sm-12">-->
+<!--                                    <input type="text" name="company_name" placeholder="Название компании" required>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-6 col-md-6 col-sm-12">-->
+<!--                                    <input type="text" name="phone" placeholder="Телефон" required>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-6 col-md-6 col-sm-12">-->
+<!--                                    <input type="email" name="email" placeholder="Ваше электронная почта" required>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-12 col-md-12 col-sm-12">-->
+<!--                                    <textarea name="message" placeholder="Сообщение"></textarea>-->
+<!--                                </div>-->
 
-                                <div class="row d-flex justify-content-between w-100">
-                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-                                        <label for="file1" class="custom-label" id="file1-label">
-                                            <span class="plus-icon"></span> Прикрепить заявку
-                                        </label>
-                                        <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
-                                        <span id="file1-name">Файл не выбран</span>
-                                    </div>
+<!--                                <div class="row d-flex justify-content-between w-100">-->
+<!--                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">-->
+<!--                                        <label for="file1" class="custom-label" id="file1-label">-->
+<!--                                            <span class="plus-icon"></span> Прикрепить заявку-->
+<!--                                        </label>-->
+<!--                                        <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">-->
+<!--                                        <span id="file1-name">Файл не выбран</span>-->
+<!--                                    </div>-->
 
-                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-                                        <label for="file2" class="custom-label" id="file2-label">
-                                            <span class="plus-icon"></span> Прикрепить реквизиты
-                                        </label>
-                                        <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
-                                        <span id="file2-name">Файл не выбран</span>
-                                    </div>
-                                </div>
+<!--                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">-->
+<!--                                        <label for="file2" class="custom-label" id="file2-label">-->
+<!--                                            <span class="plus-icon"></span> Прикрепить реквизиты-->
+<!--                                        </label>-->
+<!--                                        <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">-->
+<!--                                        <span id="file2-name">Файл не выбран</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<!--                                <div class="form-group col-lg-12 col-md-12 col-sm-12">-->
+<!--                                    <button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
 
-                </div>
-            </div>
+<!--                </div>-->
+<!--            </div>-->
 
-        </div>
-    </div>
-</section>
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <section class="container my-5">
     <div class="row align-items-start justify-content-between">

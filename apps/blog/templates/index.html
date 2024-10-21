@@ -8,7 +8,44 @@
 <title>Армснаб-74 | Поставка трубопроводной арматуры</title>
 <link rel="canonical" href="https://www.armsnab74.ru/">
 {% endblock %}
-
+<style>
+    .contact-info {
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .contact-info h5 {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    .contact-info p {
+        font-size: 1rem;
+        color: #555;
+    }
+    .contact-info ul {
+        padding: 0;
+        list-style: none;
+    }
+    .contact-info ul li {
+        font-size: 0.95rem;
+        color: #333;
+    }
+    .contact-info ul li i {
+        color: #007bff;
+    }
+    .custom-label {
+        display: block;
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+    }
+    .custom-label:hover {
+        text-decoration: underline;
+    }
+    .plus-icon {
+        content: "+ ";
+        font-weight: bold;
+    }
+</style>
 {% block content %}
 <section class="welcome-section">
     <div class="auto-container">
@@ -24,7 +61,8 @@
                 <div class="inner-column">
                     <h1>Добро пожаловать в АРМСНАБ-74</h1>
                     <p>Компания Армснаб-74 поставляет трубопроводную арматуру по всей России. Низкие цены, высокое качество продукции и полное сопровождение клиента на всех этапах сделки.</p>
-                    <a href="#contact-form" class="theme-btn btn-style-three">Отправить заявку</a>
+                    <a href="#contact-form" class="theme-btn btn-style-three" data-toggle="modal"
+										data-target="#orderModal">Отправить заявку</a>
                 </div>
             </div>
         </div>
@@ -35,7 +73,8 @@
 <section class="call-to-action-section" style="background-image:url({% static 'images/background/1.jpg' %});">
     <div class="auto-container">
         <h2>Получите <span class="theme_color">специальное предложение</span> для вашего проекта <br> с Армснаб-74</h2>
-        <a href="#contact-form" class="theme-btn btn-style-three">Отправить заявку</a>
+        <a href="#contact-form" class="theme-btn btn-style-three" data-toggle="modal"
+										data-target="#orderModal">Отправить заявку</a>
     </div>
 </section>
 
@@ -65,35 +104,60 @@
     </div>
 </section>
 
-<!-- Contact Form -->
-<section id="contact-form" class="default-section">
-    <div class="outer-container">
-        <div class="form-column mx-auto" style="background-image:url({% static 'images/background/2.jpg' %});">
-            <div class="inner-column mx-auto">
-                <h2>Свяжитесь с нами</h2>
-                <form method="post" action="{% url 'index' %}">
-                    {% csrf_token %}
-                    <div class="row clearfix">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="text" name="full_name" placeholder="Ваше Имя" required>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                            <input type="text" name="company_name" placeholder="Название компании" required>
-                        </div>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <input type="text" name="phone" placeholder="Телефон" required>
-                        </div>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <textarea name="message" placeholder="Сообщение"></textarea>
-                        </div>
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                            <button class="theme-btn btn-style-two" type="submit">Отправить заявку</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- Contact Form -->
+						<form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+							{% csrf_token %}
+							<div class="row">
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="full_name" class="form-control" placeholder="Ваше Имя"
+										required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="company_name" class="form-control"
+										placeholder="Название компании" required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="text" name="phone" class="form-control" placeholder="Телефон" required>
+								</div>
+								<div class="form-group col-lg-6 col-md-6 col-sm-12">
+									<input type="email" name="email" class="form-control"
+										placeholder="Электронная почта" required>
+								</div>
+								<div class="form-group col-lg-12 col-md-12 col-sm-12">
+									<textarea name="message" class="form-control" rows="4"
+										placeholder="Сообщение"></textarea>
+								</div>
+								<div class="row d-flex justify-content-between w-100 ml-1">
+									<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+										<label for="file1" class="custom-label" id="file1-label">
+											<span class="plus-icon"></span> Прикрепить заявку
+										</label>
+										<input type="file" id="file1" name="file1" style="display:none"
+											onchange="updateFileName('file1')">
+									</div>
+									<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+										<label for="file2" class="custom-label" id="file2-label">
+											<span class="plus-icon"></span> Прикрепить реквизиты
+										</label>
+										<input type="file" id="file2" name="file2" style="display:none"
+											onchange="updateFileName('file2')">
+									</div>
+								</div>
+								<div class="form-group col-lg-12 col-md-12 col-sm-12">
+									<button class="theme-btn btn-style-three btn-block" type="submit"
+										name="submit-form">Отправить заявку</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
 
 {% endblock %}
