@@ -2,12 +2,51 @@
 {% load static %}
 
 {% block meta %}
-<meta name="description" content="⭐⭐⭐⭐⭐ Компания &amp;quot;Армснаб-74&amp; осуществляет поставки трубопроводной арматуры во все регионы
-						России и ближнего зарубежья. Полное сопровождение клиента, на всех этапах сделки. Низкие цены,
-						высокое качество продукции гарантированы. ☎ +7 (967)-862-4431 и +7 (995)-652-4431">
-<meta name="keywords" content="Армснаб-74, Армснаб, Армснаб 74, трубопроводной арматуры, арматуры, трубопроводной,">
-{% endblock %
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="АРМСНАБ-74 предлагает широкий ассортимент трубопроводной арматуры высшего качества по доступным ценам. Доставка по России и ближнему зарубежью. Полное сопровождение сделки и гарантии качества продукции. Свяжитесь с нами по телефону: +7 (967)-862-4431 или +7 (995)-652-4431.">
+    <meta name="keywords" content="трубопроводная арматура, арматура для трубопроводов, купить арматуру Челябинск, арматура оптом, арматура России, АРМСНАБ-74, доставка арматуры, арматура для строительства, арматура цена, арматура высокого качества">
 
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="АРМСНАБ-74 | Трубопроводная арматура высокого качества" />
+    <meta property="og:description" content="Компания АРМСНАБ-74 предлагает трубопроводную арматуру высокого качества по низким ценам с доставкой по России и ближнему зарубежью. Полное сопровождение клиентов и высокие стандарты продукции." />
+    <meta property="og:image" content="{% static 'images/og-image.jpg' %}" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="АРМСНАБ-74 | Трубопроводная арматура высокого качества" />
+    <meta name="twitter:description" content="Полный ассортимент трубопроводной арматуры. Быстрая доставка, низкие цены, высокое качество." />
+    <meta name="twitter:image" content="{% static 'images/twitter-image.jpg' %}" />
+
+    <!-- Structured Data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "АРМСНАБ-74",
+      "url": "{{ request.build_absolute_uri }}",
+      "logo": "{% static 'images/logo.png' %}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7 (967)-862-4431",
+        "contactType": "Customer Service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Свердловский Тракт, 13А",
+        "addressLocality": "Челябинск",
+        "addressCountry": "Россия",
+        "postalCode": "454084"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ARMSNAB74",
+        "https://www.instagram.com/ARMSNAB74",
+        "https://www.linkedin.com/company/armsnab74"
+      ]
+    }
+    </script>
+{% endblock %}
 
 {% block content %}
 <section class="services-section-two">
@@ -15,7 +54,7 @@
         <div class="row clearfix">
 
             <!-- Title Column -->
-            {% if sub_categories  %}
+            {% if sub_categories %}
             {% for cat in sub_categories %}
                 <!-- Services Block Three -->
                 <div class="services-block-three col-lg-4 col-md-12 col-sm-12">
@@ -36,7 +75,7 @@
                 </div>
             {% endfor %}
             {% else %}
-                 <div class="row clearfix">
+                <div class="row clearfix">
                     <h1> Не найдено </h1>
                 </div>
             {% endif %}

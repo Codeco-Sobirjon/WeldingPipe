@@ -2,88 +2,114 @@
 {% load static %}
 
 {% block meta %}
-<meta name="description" content="⭐⭐⭐⭐⭐ Категории нашей компании: {{ product.name }}">
-<meta name="keywords" content="Армснаб-74, Армснаб, Армснаб 74, трубопроводной арматуры, арматуры, трубопроводной,">
-
+<meta name="description" content="{{ product.name }} - Купить в Армснаб-74, трубопроводная арматура высшего качества с низкими ценами. Закажите сейчас! ⭐⭐⭐⭐⭐">
+<meta name="keywords" content="Армснаб-74, Армснаб, {{ product.name }}, трубопроводная арматура, арматура, трубопровод, {{ product.category.name }}">
 <meta property="og:title" content="{{ product.name }} | Армснаб-74">
-<meta property="og:description" content="Категории нашей компании">
-<meta property="og:url" content="https://armsnab74.ru/detail/{{ product.name }}">
-<meta property="og:type" content="{{ product.description|safe }}">
-{% endblock %
+<meta property="og:description" content="{{ product.name }} - {{ product.description|truncatewords:20 }}">
+<meta property="og:image" content="{% if images %}{{ images.0.image.url }}{% endif %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Армснаб-74">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ product.name }} | Армснаб-74">
+<meta name="twitter:description" content="{{ product.description|truncatewords:20 }}">
+<meta name="twitter:image" content="{% if images %}{{ images.0.image.url }}{% endif %}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
 
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "{{ product.name }}",
+    "image": "{% if images %}{{ images.0.image.url }}{% endif %}",
+    "description": "{{ product.description|truncatewords:20 }}",
+    "sku": "{{ product.id }}",
+    "offers": {
+        "@type": "Offer",
+        "url": "{{ request.build_absolute_uri }}",
+        "priceCurrency": "RUB",
+        "price": "{{ product.price }}",
+        "itemCondition": "http://schema.org/NewCondition",
+        "availability": "http://schema.org/InStock"
+    },
+    "category": "{{ product.category.name }}",
+    "brand": {
+        "@type": "Organization",
+        "name": "Армснаб-74"
+    }
+}
+</script>
+{% endblock %}
 
 {% block content %}
-	<section class="projects-single-section">
-		<div class="auto-container">
-			<!-- Project Info Boxed -->
-<!--			pastga yuboramiz-->
+<section class="projects-single-section">
+    <div class="auto-container">
+        <h2>{{ product.name }}</h2>
 
-
-			<h2>{{ product.name }}</h2>
-
-			<!-- Carousel Box -->
-			<div class="carousel-box">
-    <div class="project-single-carousel owl-carousel owl-theme">
-        {% for im in images %}
-        <div class="slide">
-            <div class="image">
-                <img src="{{ im.image.url }}" style="object-fit:contain; height: 600px" alt=""
-                     data-toggle="modal" data-target="#imageModal"
-                     onclick="showImage('{{ im.image.url }}')" />
+        <!-- Carousel Box -->
+        <div class="carousel-box">
+            <div class="project-single-carousel owl-carousel owl-theme">
+                {% for im in images %}
+                <div class="slide">
+                    <div class="image">
+                        <img src="{{ im.image.url }}" style="object-fit:contain; height: 600px" alt="{{ product.name }}"
+                             data-toggle="modal" data-target="#imageModal"
+                             onclick="showImage('{{ im.image.url }}')" />
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-        {% endfor %}
-    </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1"  role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:500px; height:500px"  role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <img id="modalImage" src="" alt="" style="width: 100%; object-fit: contain; height: auto;" />
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-			<h3>Описание</h3>
-			<p>{{ product.description|safe }}</p>
-
-			<div class="project-info-block">
-    <div class="block-info">
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Диаметры</th>
-                            <th scope="col">Размер, DxT</th>
-                            <th scope="col">Масса, кг</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for row in detail %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ row.diameter }}</td>
-                            <td>{{ row.size }}</td>
-                            <td>{{ row.weight }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+        <!-- Modal for Image Preview -->
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width:500px; height:500px" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <img id="modalImage" src="" alt="{{ product.name }}" style="width: 100%; object-fit: contain; height: auto;" />
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Product Description -->
+        <h3>Описание</h3>
+        <p>{{ product.description|safe }}</p>
+
+        <!-- Product Details Table -->
+        <div class="project-info-block">
+            <div class="block-info">
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Диаметры</th>
+                                    <th scope="col">Размер, DxT</th>
+                                    <th scope="col">Масса, кг</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in detail %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ row.diameter }}</td>
+                                    <td>{{ row.size }}</td>
+                                    <td>{{ row.weight }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
-
-		</div>
-	</section>
-
+</section>
 
 <script>
     function showImage(imageUrl) {

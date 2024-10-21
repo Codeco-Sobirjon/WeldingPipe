@@ -34,12 +34,9 @@ def indexView(request):
             file2=file2
         )
         last_create = Contacts.objects.last()
-        print(last_create.file1)
-        print(last_create.file2)
         send_html_email(full_name, phone, company_name, comment, file1, file2, email)
-        # После сохранения можно перенаправить пользователя на другую страницу, например, на ту же контактную страницу
-        return redirect('index')  # Замените 'contact' на правильное имя URL
 
+        return redirect('index')
 
     return render(request, 'index.html')
 
@@ -157,3 +154,4 @@ def product_detailView(request, id):
         'detail': pro_detail
     }
     return render(request, 'detail.html', context)
+

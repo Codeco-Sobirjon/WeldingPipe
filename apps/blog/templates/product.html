@@ -2,20 +2,37 @@
 {% load static %}
 
 {% block meta %}
-<meta name="description" content="⭐⭐⭐⭐⭐ Компания &amp;quot;Армснаб-74&amp; осуществляет поставки трубопроводной арматуры во все регионы
-						России и ближнего зарубежья. Полное сопровождение клиента, на всех этапах сделки. Низкие цены,
-						высокое качество продукции гарантированы. ☎ +7 (967)-862-4431 и +7 (995)-652-4431">
-<meta name="keywords" content="Армснаб-74, Армснаб, Армснаб 74, трубопроводной арматуры, арматуры, трубопроводной,">
-{% endblock %
+<!-- SEO Meta Tags -->
+<title>{{ category.name }} | Купить продукцию у Армснаб-74</title>
+<meta name="description" content="⭐⭐⭐⭐⭐ Компания Армснаб-74 предлагает {{ category.name }}. Полное сопровождение клиента, низкие цены и высокое качество продукции. Осуществляем поставки трубопроводной арматуры. ☎ +7 (967)-862-4431 и +7 (995)-652-4431">
+<meta name="keywords" content="{{ category.name }}, Армснаб-74, трубопроводная арматура, {{ category.name }} купить, продукция {{ category.name }}">
+
+<!-- Open Graph Meta Tags for Social Media -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ category.name }} | Купить продукцию у Армснаб-74" />
+<meta property="og:description" content="Компания Армснаб-74 предлагает {{ category.name }} по доступной цене. Высокое качество продукции, полное сопровождение клиента." />
+<meta property="og:url" content="{% url 'product' category.id %}" />
+<meta property="og:image" content="{% if product %}{{ product.0.images.image.url }}{% else %}{% static 'images/default-product.jpg' %}{% endif %}" />
+
+<!-- Twitter Card Meta Tags for Social Sharing -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ category.name }} | Армснаб-74" />
+<meta name="twitter:description" content="Купить {{ category.name }} у компании Армснаб-74. Низкие цены, высокое качество и полное сопровождение сделки." />
+<meta name="twitter:image" content="{% if product %}{{ product.0.images.image.url }}{% else %}{% static 'images/default-product.jpg' %}{% endif %}" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{% url 'product' category.id %}" />
+
+{% endblock meta %}
 
 {% block content %}
 <section class="blogs-page-section">
     <div class="auto-container">
 
         {% if product %}
-    <div class="row clearfix">
-        <!-- Iterate over the products -->
-        {% for item in product %}
+        <div class="row clearfix">
+            <!-- Iterate over the products -->
+            {% for item in product %}
             <!-- Product Block -->
             <div class="news-block-two col-lg-4 col-md-6 col-sm-12">
                 <div class="inner-box">
@@ -31,42 +48,42 @@
                             <li><span class="icon fa fa-gear"></span> {{ item.pro.category.name }}</li>
                         </ul>
                         <h3><a href="{% url 'detail' item.pro.id %}">{{ item.pro.name }}</a></h3>
+                        <p>{{ item.pro.description|truncatewords:20 }}</p>
                     </div>
                 </div>
             </div>
             <!-- End Product Block -->
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 
-    <!-- Post Share Options -->
-    <div class="styled-pagination text-center">
-        <ul class="clearfix">
-            {% if page_obj.has_previous %}
+        <!-- Pagination -->
+        <div class="styled-pagination text-center">
+            <ul class="clearfix">
+                {% if page_obj.has_previous %}
                 <li><a href="?page=1"><span class="fa fa-angle-left"></span></a></li>
                 <li><a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
-            {% endif %}
-            <li class="active"><a href="#">{{ page_obj.number }}</a></li>
-            {% for i in page_obj.paginator.page_range %}
-                {% if i != page_obj.number %}
-                    <li><a href="?page={{ i }}">{{ i }}</a></li>
                 {% endif %}
-            {% endfor %}
-            {% if page_obj.has_next %}
+                <li class="active"><a href="#">{{ page_obj.number }}</a></li>
+                {% for i in page_obj.paginator.page_range %}
+                {% if i != page_obj.number %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
                 <li><a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
                 <li><a href="?page={{ page_obj.paginator.num_pages }}"><span class="fa fa-angle-right"></span></a></li>
-            {% endif %}
-        </ul>
-    </div>
-    <p>{{ category.description|safe }}</p>
-    <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
-{% else %}
-    <div class="row clearfix">
-        <h1>Не найдено</h1> <br>
-    </div>
-{% endif %}
+                {% endif %}
+            </ul>
+        </div>
+
+        <p>{{ category.description|safe }}</p>
+        <a href="{% url 'contact' %}" class="theme-btn btn-style-three">Отправить заявку</a>
+        {% else %}
+        <div class="row clearfix">
+            <h1>Не найдено</h1> <br>
+        </div>
+        {% endif %}
 
     </div>
 </section>
-
-
 {% endblock content %}

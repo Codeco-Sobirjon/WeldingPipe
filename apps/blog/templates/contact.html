@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-<meta name="description" content="⭐⭐⭐⭐⭐ Компания &amp;quot;Армснаб-74&amp; осуществляет поставки трубопроводной арматуры во все регионы
-						России и ближнего зарубежья. Полное сопровождение клиента, на всех этапах сделки. Низкие цены,
-						высокое качество продукции гарантированы. ☎ +7 (967)-862-4431 и +7 (995)-652-4431">
-<meta name="keywords" content="Армснаб-74, Армснаб, Армснаб 74, трубопроводной арматуры, арматуры, трубопроводной,">
-{% endblock %
+<meta name="description" content="АРМСНАБ-74 предлагает трубопроводную арматуру высокого качества по низким ценам с доставкой по России и ближнему зарубежью. Гарантированное сопровождение клиентов на всех этапах сделки. Свяжитесь с нами: +7 (967)-862-4431 и +7 (995)-652-4431.">
+<meta name="keywords" content="трубопроводная арматура, купить арматуру Челябинск, арматура оптом, трубопроводная продукция, АРМСНАБ-74, доставка арматуры, арматура Россия, арматура для трубопроводов, арматура заказать, арматура для строительства">
+{% endblock %}
 
 {% block content %}
 <style>
@@ -32,84 +30,89 @@
     .contact-info ul li i {
         color: #007bff;
     }
+    .custom-label {
+        display: block;
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+    }
+    .custom-label:hover {
+        text-decoration: underline;
+    }
+    .plus-icon {
+        content: "+ ";
+        font-weight: bold;
+    }
 </style>
 
 <br>
 
-
-
-
-
 <section class="default-section">
-		<div class="outer-container ">
-			<div class="clearfix">
-				<div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">
-					<div class="inner-column mx-auto">
-						<!-- Sec Title -->
-						<div class="sec-title light">
-							<div class="title-inner">
-								<div class="title">Отправка данных</div>
-								<h2>АРМСНАБ-74 Admin</h2>
-							</div>
-						</div>
+    <div class="outer-container ">
+        <div class="clearfix">
+            <div class="form-column mx-auto" style="background-image:url(images/background/2.jpg)">
+                <div class="inner-column mx-auto">
+                    <!-- Sec Title -->
+                    <div class="sec-title light">
+                        <div class="title-inner">
+                            <div class="title">Отправка данных</div>
+                            <h2>АРМСНАБ-74 Admin</h2>
+                        </div>
+                    </div>
 
-						<!-- Quote Form -->
-						<div class="quote-form mx-auto">
+                    <!-- Quote Form -->
+                    <div class="quote-form mx-auto">
+                        <!--Contact Form-->
+                        <form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row clearfix">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="text" name="full_name" placeholder="Ваше Имя" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="text" name="company_name" placeholder="Название компании" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="text" name="phone" placeholder="Телефон" required>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <input type="email" name="email" placeholder="Ваше электронная почта" required>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <textarea name="message" placeholder="Сообщение"></textarea>
+                                </div>
 
-							<!--Contact Form-->
-							<form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
-								{% csrf_token %}
-								<div class="row clearfix">
-
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="full_name" placeholder="Ваше Имя" required>
-									</div>
-
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-										<input type="text" name="company_name" placeholder="Название компании" required>
-									</div>
-
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="text" name="phone"  placeholder="Телефон" required>
+                                <div class="row d-flex justify-content-between w-100">
+                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                        <label for="file1" class="custom-label" id="file1-label">
+                                            <span class="plus-icon"></span> Прикрепить заявку
+                                        </label>
+                                        <input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
+                                        <span id="file1-name">Файл не выбран</span>
                                     </div>
-									<div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                        <input type="email" name="email" placeholder="Ваше электронная почта" required>
+
+                                    <div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
+                                        <label for="file2" class="custom-label" id="file2-label">
+                                            <span class="plus-icon"></span> Прикрепить реквизиты
+                                        </label>
+                                        <input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
+                                        <span id="file2-name">Файл не выбран</span>
                                     </div>
+                                </div>
 
-									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<textarea name="message" placeholder="Сообщение"></textarea>
-									</div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
-									<div class="row d-flex justify-content-between w-100">
-										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-											<label for="file1" class="custom-label" id="file1-label">
-												<span class="plus-icon"></span> Прикрепить заявку
-											</label>
-											<input type="file" id="file1" name="file1" style="display:none" onchange="updateFileName('file1')">
-										</div>
+                </div>
+            </div>
 
-										<div class="custom-file-upload col-lg-6 col-md-6 col-sm-12">
-											<label for="file2" class="custom-label" id="file2-label">
-												<span class="plus-icon"></span> Прикрепить реквизиты
-											</label>
-											<input type="file" id="file2" name="file2" style="display:none" onchange="updateFileName('file2')">
-										</div>
-									</div>
-
-									<div class="form-group col-lg-12 col-md-12 col-sm-12">
-										<button class="theme-btn btn-style-two" type="submit" name="submit-form">Отправить заявку</button>
-									</div>
-
-								</div>
-							</form>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
+        </div>
+    </div>
+</section>
 
 <section class="container my-5">
     <div class="row align-items-start justify-content-between">
@@ -129,7 +132,6 @@
         </div>
         <!-- Google Map -->
         <div class="col-lg-7 col-md-6">
-
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.014340775173!2d61.38660317705924!3d55.200509034394535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c5ecdcb4d32617%3A0x76627368a183aec8!2sSverdlovskiy%20Trakt%2C%2013%D0%90%2C%20Chelyabinsk%2C%20Chelyabinskaya%20oblast&#39;%2C%20Russia%2C%20454084!5e0!3m2!1sen!2s!4v1728626649852!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
@@ -137,11 +139,31 @@
 
 <script>
     function updateFileName(fileId) {
-    const fileInput = document.getElementById(fileId);
-    const fileNameSpan = document.getElementById(fileId + '-name');
-    const fileName = fileInput.files.length ? fileInput.files[0].name : 'Файл не выбран';
-
-    fileNameSpan.textContent = fileName;
+        const fileInput = document.getElementById(fileId);
+        const fileNameSpan = document.getElementById(fileId + '-name');
+        const fileName = fileInput.files.length ? fileInput.files[0].name : 'Файл не выбран';
+        fileNameSpan.textContent = fileName;
+    }
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "АРМСНАБ-74",
+  "url": "https://example.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Свердловский Тракт, 13А",
+    "addressLocality": "Челябинск",
+    "postalCode": "454084",
+    "addressCountry": "RU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+7 (967)-862-4431",
+    "contactType": "Customer Service"
+  },
+  "description": "Компания АРМСНАБ-74 занимается поставками трубопроводной арматуры по России и ближнему зарубежью. Низкие цены и высокое качество продукции."
 }
 </script>
 {% endblock content %}
